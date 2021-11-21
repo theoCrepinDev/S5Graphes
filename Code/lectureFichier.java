@@ -1,8 +1,8 @@
 import java.io.*;
-import java.sql.ResultSetMetaData;
 import java.util.Scanner;
 
 public class LectureFichiers{
+    static int inf = Integer.MAX_VALUE; //permet de représenter l'infini
 
     //fonction qui prend en argument une ligne du fichier composée de arrete_depart arrete_arrivée cout et
     //renvoit les trois valeurs séparés dans un tableau de string
@@ -20,28 +20,62 @@ public class LectureFichiers{
             }
             caractere_en_cour++;
         }
-
-        resultat[val_actuelle] = stri.substring(debut_temporaire, len - 1);
+        
+        resultat[val_actuelle] = stri.substring(debut_temporaire, len );
         return resultat;
     }
 
-
-
-
-    public static void main(String[] args) throws FileNotFoundException{
-        FileInputStream file = new FileInputStream("test.txt");
+    //fonction qui prend en argument l'adresse d'un fichier texte représentant un graphe et renvoit sa 
+    //matrice d'adjacence
+    public static double[][] matriceAdjacence(String fichier) throws FileNotFoundException{
+        FileInputStream file = new FileInputStream(fichier);
         Scanner scanner = new Scanner(file);
 
-        while(scanner.hasNextLine()){
-            String line = scanner.nextLine();
-            System.out.println(line);
+        //lecture du nombre de sommets
+        String nbrSommetsString = scanner.nextLine();
+        int nbrSommets = Integer.parseInt(nbrSommetsString);
+
+        //initialisation du tableau de la matrice d'adjacence
+        //de taille nbrSommets,nbrSommets
+        double[][] matriceAdjacence = new double[nbrSommets][nbrSommets];
+
+        String line2 = scanner.nextLine();
+
+        //initialisation de toutes les valeurs du tableau a inf
+        for(int i = 0; i < nbrSommets; i++){
+            for(int j = 0; j < nbrSommets; j++){
+                matriceAdjacence[i][j] = inf;
+            }
+        }
+
+        while (scanner.hasNextLine()){
+            String lineString = scanner.nextLine();
+            //On récupère le tableau des Trois valeures séparés en String
+            String[] lineSepString = separation(lineString);
+            //on met les valeures en int dans des variables
+            int i = Integer.parseInt(lineSepString[0]);
+            int j = Integer.parseInt(lineSepString[1]);
+            double cout = Double.parseDouble(lineSepString[2]);
+            matriceAdjacence[i][j] = cout;
         }
 
         scanner.close();
-
-        String a = "12";
-        int b = Integer.parseInt(a); //convertit un string en sa valeur en int
-
-        System.out.println(b);
+        return matriceAdjacence;
     }
+
+
+    public static void main(String[] args) throws FileNotFoundException{
+        String fichier = "graphe.txt";
+
+        double[][] mat = matriceAdjacence(fichier);
+        for(int i = 0; i < 4; i++){
+            for(int j = 0; j < 4; j++){
+                System.out.print(mat[i][j]);
+                System.out.print(" ");
+            }
+            System.out.println("\n");
+        }
+
+    }
+    
 }
