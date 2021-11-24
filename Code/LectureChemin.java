@@ -20,6 +20,11 @@ public class LectureChemin {
         return this.cheminsPosibles.size();
     }
 
+    //récupère le couple à l'indice i
+    public CouplesEntiers get(int i){
+        return this.cheminsPosibles.get(i);
+    }
+    
     //méthode toString pour l'affichage des chemin possibles avec le choix
     @Override
     public String toString(){
@@ -28,7 +33,7 @@ public class LectureChemin {
         affichage += "Voici les chemins possibles \n";
         affichage += "veuillez en sélectionner un :\n";
         for(int i = 0; i < len; i++){
-            affichage += i + " : chemin de " + cheminsPosibles.get(i).getVal1() + " vers : " + cheminsPosibles.get(i).getVal2() + " \n";
+            affichage += (i + 1) + " : chemin de " + cheminsPosibles.get(i).getVal1() + " vers : " + cheminsPosibles.get(i).getVal2() + " \n";
         }
         return affichage;
     }
@@ -51,22 +56,22 @@ public class LectureChemin {
 
     // fonction pour permettre la lecture d'un chemin à partir de la matrice de prédécesseurs
     //la longeure max est le nombre de sommets présent dans le graphes
-    public static ArrayList<Integer> rechercheChemin(int[][] matricePrede, int depart, int arrivee){
+    public static ArrayList<Integer> rechercheChemin(double[][] matricePrede, int depart, int arrivee){
         ArrayList<Integer> resultat = new ArrayList<>();
-        int predecActuel = arrivee;
+        double predecActuel = arrivee;
         if(matricePrede[depart][arrivee] == inf){
             resultat.add(-1);
         }
         else{
             while(predecActuel != depart){
-                resultat.add(predecActuel);
-                predecActuel = matricePrede[depart][predecActuel];
+                resultat.add((int) predecActuel);
+                predecActuel = matricePrede[depart][(int) predecActuel];
             }
         }
         return resultat;
     }
 
-    public static void affichageArrayList(ArrayList<Integer> liste){
+    public static void affichageChemin(ArrayList<Integer> liste){
         int len = liste.size();
         System.out.println("affichage du chemin le plus court :");
         for(int i = len; i >= 0; i--){
