@@ -1,8 +1,24 @@
+
+
 import java.io.*;
 import java.util.Scanner;
 
-public class LectureFichiers{
-    static int inf = Integer.MAX_VALUE; //permet de représenter l'infini
+public class lectureFichier {
+    public static int inf = Integer.MAX_VALUE; //permet de représenter l'infini
+
+    //fonction d'affichage d'une matrice
+    //sera remplacée par celle de Farouk qui sera plus esthétique
+    public static void affichageMatrice(double[][] matrice){
+        int k = matrice.length;
+        int l =matrice[0].length;
+        for(int i = 0; i < k; i++){
+            for(int j = 0; j < l; j++){
+                System.out.print(matrice[i][j]);
+                System.out.print(" ");
+            }
+            System.out.println("\n");
+        }
+    }
 
     //fonction qui prend en argument une ligne du fichier composée de arrete_depart arrete_arrivée cout et
     //renvoit les trois valeurs séparés dans un tableau de string
@@ -45,7 +61,7 @@ public class LectureFichiers{
         for(int i = 0; i < nbrSommets; i++){
             for(int j = 0; j < nbrSommets; j++){
                 matriceAdjacence[i][j] = inf;
-            }
+             }
         }
 
         while (scanner.hasNextLine()){
@@ -53,29 +69,13 @@ public class LectureFichiers{
             //On récupère le tableau des Trois valeures séparés en String
             String[] lineSepString = separation(lineString);
             //on met les valeures en int dans des variables
-            int i = Integer.parseInt(lineSepString[0]);
-            int j = Integer.parseInt(lineSepString[1]);
+            int k = Integer.parseInt(lineSepString[0]);
+            int l = Integer.parseInt(lineSepString[1]);
             double cout = Double.parseDouble(lineSepString[2]);
-            matriceAdjacence[i][j] = cout;
+            matriceAdjacence[k][l] = cout;
         }
 
         scanner.close();
         return matriceAdjacence;
     }
-
-
-    public static void main(String[] args) throws FileNotFoundException{
-        String fichier = "graphe.txt";
-
-        double[][] mat = matriceAdjacence(fichier);
-        for(int i = 0; i < 4; i++){
-            for(int j = 0; j < 4; j++){
-                System.out.print(mat[i][j]);
-                System.out.print(" ");
-            }
-            System.out.println("\n");
-        }
-
-    }
-    
 }
