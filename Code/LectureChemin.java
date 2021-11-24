@@ -44,8 +44,8 @@ public class LectureChemin {
         int len = matriceP.length;
         for(int i = 0; i < len; i++){
             for(int j = 0; j < len; j++){
-                if(matriceP[i][j] != inf){
-                    CouplesEntiers cheminTrouve = new CouplesEntiers(i,j);
+                if(matriceP[i][j] != -1){
+                    CouplesEntiers cheminTrouve = new CouplesEntiers(i ,j );
                     this.cheminsPosibles.add(cheminTrouve);
                 }
             }
@@ -67,6 +67,7 @@ public class LectureChemin {
                 resultat.add((int) predecActuel);
                 predecActuel = matricePrede[depart][(int) predecActuel];
             }
+            resultat.add((int) predecActuel);
         }
         return resultat;
     }
@@ -74,11 +75,13 @@ public class LectureChemin {
     public static void affichageChemin(ArrayList<Integer> liste){
         int len = liste.size();
         System.out.println("affichage du chemin le plus court :");
-        for(int i = len; i >= 0; i--){
+        
+        for(int i = len - 1; i >= 0; i--){
             System.out.print(liste.get(i));
             if (i != 0){
                 System.out.print("->");
             }
         }
+        System.out.println("");
     }
 }
