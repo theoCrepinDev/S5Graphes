@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class LectureChemin {
     static int inf = Integer.MAX_VALUE; //permet de représenter l'infini
@@ -58,7 +59,8 @@ public class LectureChemin {
     //la longeure max est le nombre de sommets présent dans le graphes
     public static ArrayList<Integer> rechercheChemin(double[][] matricePrede, int depart, int arrivee){
         ArrayList<Integer> resultat = new ArrayList<>();
-        double predecActuel = arrivee;
+        resultat.add(arrivee);
+        double predecActuel = matricePrede[depart][arrivee];
         if(matricePrede[depart][arrivee] == inf){
             resultat.add(-1);
         }
