@@ -53,7 +53,7 @@ public class Floyd {
                     System.out.println(matriceL[k][j]);
                     */
                     // j'ajoute la condition de i différent de j car on a pas besoins de parcourir le graphe 
-                    if(matriceL[i][j] > (matriceL[i][k] + matriceL[k][j])){
+                    if(matriceL[i][j] > (matriceL[i][k] + matriceL[k][j]) && (matriceL[k][j] != inf && matriceL[i][k] != inf)){
                         matriceL[i][j] = matriceL[i][k] + matriceL[k][j];
                         matriceP[i][j] = matriceP[k][j];
                     }

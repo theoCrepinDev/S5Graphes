@@ -6,15 +6,19 @@ public class Main {
     public static boolean a= true;
     public static void main(String args[]) throws FileNotFoundException{
         Scanner scanner = new Scanner(System.in);
+        
+        String grapheTraiter = "Code/";
+
+        int autreGraphe;
         //while true pour que le programme tourne en boucle
+        //on commence par demander le nom du fichier du graphe a traiter
+        System.out.println("Entrer le nom du fichier graphe (grapheX.txt) :");
+        grapheTraiter += scanner.nextLine();
         
         while(a){
-            a= false;
             //y a t-il plusieurs graphes par fichier texte ou chaques graphe a son propre fichier ?
             //a coder interface de gestion de la demande degraphe et on dit que le graphe à retourner se situe dans le dossier
             //test.txt soit dans la variable grapheTraiter
-
-            String grapheTraiter = "Code/graphe.txt";
         
             //Etape 1 récupération de la matrice d'adjacence
             double[][] matriceAdjacence = lectureFichier.matriceAdjacence(grapheTraiter);
@@ -60,8 +64,20 @@ public class Main {
                     }
                 }
             }
+            
+            System.out.println("voulez vous étudier un autre graphe? (1: oui; 2: non)");
+            autreGraphe = scanner.nextInt();
+            if(autreGraphe == 2){
+                a = false;
+            }
+            else{
+                a = true;
+                grapheTraiter = "Code/";
+                System.out.println("Entrer le nom du fichier graphe (grapheX.txt) :");
+                grapheTraiter += scanner.nextLine();
+                grapheTraiter += scanner.nextLine();
+            }
         }
-        System.out.println("sortit");
         scanner.close();
     }
 }
