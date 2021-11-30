@@ -16,7 +16,7 @@ public class LectureChemin {
         return this.cheminsPosibles.get(i);
     }
     
-    //méthode pour récupérer le nombre de chemin possibles
+    //méthode pour récupérer le nombre de chemins possibles
     public int getNombreChemins(){
         return this.cheminsPosibles.size();
     }
@@ -26,13 +26,13 @@ public class LectureChemin {
         return this.cheminsPosibles.get(i);
     }
     
-    //méthode toString pour l'affichage des chemin possibles avec le choix
+    //méthode toString pour l'affichage des chemins possibles avec le choix
     @Override
     public String toString(){
         int len = this.cheminsPosibles.size();
         String affichage = "";
-        affichage += "Voici les chemins possibles \n";
-        affichage += "veuillez en sélectionner un :\n";
+        affichage += "Voici les chemins possibles :\n";
+        affichage += "Veuillez en sélectionner un :\n";
         for(int i = 0; i < len; i++){
             affichage += (i + 1) + " : chemin de " + cheminsPosibles.get(i).getVal1() + " vers : " + cheminsPosibles.get(i).getVal2() + " \n";
         }
@@ -40,7 +40,7 @@ public class LectureChemin {
     }
     
     //fonction qui permet de renvoyer un tableau 
-    //des chemin possibles qui prend en arguments une matrice des prédécesseurs
+    //des chemins possibles qui prend en arguments une matrice des prédécesseurs
     public ArrayList<CouplesEntiers> listeCheminsPossibles(double[][] matriceP){
         int len = matriceP.length;
         for(int i = 0; i < len; i++){

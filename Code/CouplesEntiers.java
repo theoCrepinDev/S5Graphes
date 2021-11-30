@@ -1,4 +1,5 @@
 //class permettant la représentation de couples d'entiers
+//pour représenter les sommets de départ et d'arrivée
 public class CouplesEntiers {
     private int val1;
     private int val2;

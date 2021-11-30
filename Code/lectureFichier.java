@@ -9,8 +9,8 @@ public class lectureFichier {
     //fonction d'affichage d'une matrice
     //sera remplacée par celle de Farouk qui sera plus esthétique
     public static void affichageMatrice(double[][] matrice){
-        int k = matrice.length;
-        int l =matrice[0].length;
+        int k = matrice.length; //nbr de lignes
+        int l =matrice[0].length; //nbr de colonnes
         for(int i = 0; i < k; i++){
             for(int j = 0; j < l; j++){
                 System.out.print(matrice[i][j]);
@@ -54,7 +54,7 @@ public class lectureFichier {
         //initialisation du tableau de la matrice d'adjacence
         //de taille nbrSommets,nbrSommets
         double[][] matriceAdjacence = new double[nbrSommets][nbrSommets];
-
+ 
         String line2 = scanner.nextLine();
 
         //initialisation de toutes les valeurs du tableau a inf
