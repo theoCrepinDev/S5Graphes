@@ -1,11 +1,13 @@
-public class Floyd {
+public class A5_Floyd {
     static int inf = Integer.MAX_VALUE; //permet de représenter l'infini
     private double[][] matriceL;
     private double[][] matriceP;
+    private boolean circuitAbsorbant;
 
-    public Floyd(double[][] matriceL, double[][] matriceP){
+    public A5_Floyd(double[][] matriceL, double[][] matriceP,Boolean circuitAbsorbant){
         this.matriceL = matriceL;
         this.matriceP = matriceP;
+        this.circuitAbsorbant = circuitAbsorbant;
     }
 
     //méthodes get
@@ -17,12 +19,17 @@ public class Floyd {
         return this.matriceL;
     }
     
-    public static Floyd algorythmeFloyd(double[][] matriceAdjacence){
+    public boolean aCircuitAbs(){
+        return circuitAbsorbant;
+    }
+
+    public static A5_Floyd algorythmeFloyd(double[][] matriceAdjacence){
         int len = matriceAdjacence.length;
         System.out.println(len);
 
         double[][] matriceL = new double[len][len];
         double[][] matriceP = new double[len][len];
+        boolean circuitAbsorbant = true;
         //copie de la matrice d'adjacence dans L
         //et initialisation de P
         
@@ -39,9 +46,9 @@ public class Floyd {
         }
         //affichage des matrice avant les itérations
         System.out.println("affichage matrice des poids avant itérations");
-        lectureFichier.affichageMatrice(matriceL);
+        A5_LectureFichier.affichageMatrice(matriceL);
         System.out.println("affichage matrice des prédécesseurs avant itérations");
-        lectureFichier.affichageMatrice(matriceP);
+        A5_LectureFichier.affichageMatrice(matriceP);
 
         //les matrice sont initialisé on va commencer les itération sur
         for(int k = 0; k < len; k++){
@@ -57,14 +64,19 @@ public class Floyd {
                         matriceL[i][j] = matriceL[i][k] + matriceL[k][j];
                         matriceP[i][j] = matriceP[k][j];
                     }
+                    //détection de circuit absorbant (valeure négative sur la diagonale)
+                    if(i == j && matriceP[i][j] < 0){
+                        circuitAbsorbant = true;
+                    }
                 }
             }
+
             //affichage des matrice intermédiaires
             System.out.println("affiche de la matrice des poids après l'étape :" + k);
-            lectureFichier.affichageMatrice(matriceL);
+            A5_LectureFichier.affichageMatrice(matriceL);
             System.out.println("affiche de la matrice des prédécesseurs après l'étape :" + k);
-            lectureFichier.affichageMatrice(matriceP);
+            A5_LectureFichier.affichageMatrice(matriceP);
         }
-        return new Floyd(matriceL, matriceP);
+        return new A5_Floyd(matriceL, matriceP, circuitAbsorbant);
     }
 }

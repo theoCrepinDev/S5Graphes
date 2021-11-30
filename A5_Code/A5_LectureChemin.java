@@ -1,18 +1,17 @@
 import java.util.ArrayList;
-import java.util.concurrent.ArrayBlockingQueue;
 
-public class LectureChemin {
+public class A5_LectureChemin {
     static int inf = Integer.MAX_VALUE; //permet de représenter l'infini
     //variable d'instance contenant la liste des chemins possibles
-    private  ArrayList<CouplesEntiers> cheminsPosibles;
+    private  ArrayList<A5_CouplesEntiers> cheminsPosibles;
 
     //constructeur
-    public LectureChemin(){
+    public A5_LectureChemin(){
         this.cheminsPosibles = new ArrayList<>();
     }
 
     //méthode permettant de récupérer le couple (départ arrive ) à l'indice i
-    public CouplesEntiers getCheminI(int i){
+    public A5_CouplesEntiers getCheminI(int i){
         return this.cheminsPosibles.get(i);
     }
     
@@ -22,7 +21,7 @@ public class LectureChemin {
     }
 
     //récupère le couple à l'indice i
-    public CouplesEntiers get(int i){
+    public A5_CouplesEntiers get(int i){
         return this.cheminsPosibles.get(i);
     }
     
@@ -41,12 +40,12 @@ public class LectureChemin {
     
     //fonction qui permet de renvoyer un tableau 
     //des chemin possibles qui prend en arguments une matrice des prédécesseurs
-    public ArrayList<CouplesEntiers> listeCheminsPossibles(double[][] matriceP){
+    public ArrayList<A5_CouplesEntiers> listeCheminsPossibles(double[][] matriceP){
         int len = matriceP.length;
         for(int i = 0; i < len; i++){
             for(int j = 0; j < len; j++){
                 if(matriceP[i][j] != -1){
-                    CouplesEntiers cheminTrouve = new CouplesEntiers(i ,j );
+                    A5_CouplesEntiers cheminTrouve = new A5_CouplesEntiers(i ,j );
                     this.cheminsPosibles.add(cheminTrouve);
                 }
             }
@@ -74,7 +73,7 @@ public class LectureChemin {
         return resultat;
     }
 
-    public static void affichageChemin(ArrayList<Integer> liste){
+    public static void affichageChemin(ArrayList<Integer> liste, double poids){
         int len = liste.size();
         System.out.println("affichage du chemin le plus court :");
         
@@ -85,5 +84,7 @@ public class LectureChemin {
             }
         }
         System.out.println("");
+
+        System.out.println("De poids : " + poids);
     }
 }

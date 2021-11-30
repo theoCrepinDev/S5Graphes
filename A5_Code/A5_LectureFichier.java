@@ -3,7 +3,7 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class lectureFichier {
+public class A5_LectureFichier {
     public static int inf = Integer.MAX_VALUE; //permet de représenter l'infini
 
     //fonction d'affichage d'une matrice
@@ -55,7 +55,7 @@ public class lectureFichier {
         //de taille nbrSommets,nbrSommets
         double[][] matriceAdjacence = new double[nbrSommets][nbrSommets];
 
-        String line2 = scanner.nextLine();
+        scanner.nextLine();
 
         //initialisation de toutes les valeurs du tableau a inf
         for(int i = 0; i < nbrSommets; i++){
