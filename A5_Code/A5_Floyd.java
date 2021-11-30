@@ -44,13 +44,13 @@ public class A5_Floyd {
                 }
             }
         }
-        //affichage des matrice avant les itérations
+        //affichage des matrices avant les itérations
         System.out.println("affichage matrice des poids avant itérations");
         A5_LectureFichier.affichageMatrice(matriceL);
         System.out.println("affichage matrice des prédécesseurs avant itérations");
         A5_LectureFichier.affichageMatrice(matriceP);
 
-        //les matrice sont initialisé on va commencer les itération sur
+        //les matrices sont initialisées on va commencer les itérations sur
         for(int k = 0; k < len; k++){
             for(int i = 0; i < len; i++){
                 for(int j = 0; j < len; j++){
@@ -59,7 +59,7 @@ public class A5_Floyd {
                     System.out.println(matriceL[i][k]);
                     System.out.println(matriceL[k][j]);
                     */
-                    // j'ajoute la condition de i différent de j car on a pas besoins de parcourir le graphe 
+                    // j'ajoute la condition de i différent de j car on a pas besoin de parcourir le graphe 
                     if(matriceL[i][j] > (matriceL[i][k] + matriceL[k][j]) && (matriceL[k][j] != inf && matriceL[i][k] != inf)){
                         matriceL[i][j] = matriceL[i][k] + matriceL[k][j];
                         matriceP[i][j] = matriceP[k][j];
