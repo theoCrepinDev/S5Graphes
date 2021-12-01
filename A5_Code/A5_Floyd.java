@@ -25,7 +25,6 @@ public class A5_Floyd {
 
     public static A5_Floyd algorythmeFloyd(double[][] matriceAdjacence){
         int len = matriceAdjacence.length;
-        System.out.println(len);
 
         double[][] matriceL = new double[len][len];
         double[][] matriceP = new double[len][len];

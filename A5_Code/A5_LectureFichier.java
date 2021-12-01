@@ -9,16 +9,34 @@ public class A5_LectureFichier {
     //fonction d'affichage d'une matrice
     //sera remplacée par celle de Farouk qui sera plus esthétique
     public static void affichageMatrice(double[][] matrice){
-        int k = matrice.length; //nbr de lignes
-        int l =matrice[0].length; //nbr de colonnes
-        for(int i = 0; i < k; i++){
-            for(int j = 0; j < l; j++){
-                System.out.print(matrice[i][j]);
-                System.out.print(" ");
+        int a = matrice.length;
+        int b = matrice.length;
+        for(int i = 0; i < a; i++){
+            System.out.print("|    ");
+            for(int j = 0; j < b; j++){
+                if(matrice[i][j] == inf){
+                    System.out.print("inf" + "    ");
+                }
+                else{
+                    if(matrice[i][j] < 10 && matrice[i][j] >= 0){
+                        System.out.print(matrice[i][j]+"    ");
+                    }
+                    else{
+                        if(matrice[i][j] < 100 && matrice[i][j] > -10){
+                            System.out.print(matrice[i][j]+"   ");
+                        }
+                        else{
+                            System.out.print(matrice[i][j]+"  ");
+                        }
+                    }
+                }
             }
-            System.out.println("\n");
+            System.out.println("|");
         }
+        System.out.println("");
+
     }
+    
 
     //fonction qui prend en argument une ligne du fichier composée de arrete_depart arrete_arrivée cout et
     //renvoit les trois valeurs séparés dans un tableau de string
