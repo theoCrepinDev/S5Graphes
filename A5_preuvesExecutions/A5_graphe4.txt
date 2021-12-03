@@ -1,0 +1,72 @@
+voulez vous étudier un autre graphe? (1: oui; 2: non)
+1
+Entrer le nom du fichier graphe (grapheX.txt) :
+graphe4.txt
+|    inf    1.0    -5.0   inf    |
+|    inf    inf    -3.0   2.0    |
+|    inf    -1.0   inf    2.0    |
+|    inf    inf    inf    inf    |
+
+affichage matrice des poids avant itérations
+|    inf    1.0    -5.0   inf    |
+|    inf    inf    -3.0   2.0    |
+|    inf    -1.0   inf    2.0    |
+|    inf    inf    inf    inf    |
+
+affichage matrice des prédécesseurs avant itérations
+|    -1.0   0.0    0.0    -1.0   |
+|    -1.0   -1.0   1.0    1.0    |
+|    -1.0   2.0    -1.0   2.0    |
+|    -1.0   -1.0   -1.0   -1.0   |
+
+affiche de la matrice des poids après l'étape :0
+|    inf    1.0    -5.0   inf    |
+|    inf    inf    -3.0   2.0    |
+|    inf    -1.0   inf    2.0    |
+|    inf    inf    inf    inf    |
+
+affiche de la matrice des prédécesseurs après l'étape :0
+|    -1.0   0.0    0.0    -1.0   |
+|    -1.0   -1.0   1.0    1.0    |
+|    -1.0   2.0    -1.0   2.0    |
+|    -1.0   -1.0   -1.0   -1.0   |
+
+affiche de la matrice des poids après l'étape :1
+|    inf    1.0    -5.0   3.0    |
+|    inf    inf    -3.0   2.0    |
+|    inf    -1.0   -4.0   1.0    |
+|    inf    inf    inf    inf    |
+
+affiche de la matrice des prédécesseurs après l'étape :1
+|    -1.0   0.0    0.0    1.0    |
+|    -1.0   -1.0   1.0    1.0    |
+|    -1.0   2.0    1.0    1.0    |
+|    -1.0   -1.0   -1.0   -1.0   |
+
+affiche de la matrice des poids après l'étape :2
+|    inf    -6.0   -9.0   -8.0   |
+|    inf    -4.0   -7.0   -6.0   |
+|    inf    -5.0   -8.0   -7.0   |
+|    inf    inf    inf    inf    |
+
+affiche de la matrice des prédécesseurs après l'étape :2
+|    -1.0   2.0    1.0    1.0    |
+|    -1.0   2.0    1.0    1.0    |
+|    -1.0   2.0    1.0    1.0    |
+|    -1.0   -1.0   -1.0   -1.0   |
+
+affiche de la matrice des poids après l'étape :3
+|    inf    -6.0   -9.0   -8.0   |
+|    inf    -4.0   -7.0   -6.0   |
+|    inf    -5.0   -8.0   -7.0   |
+|    inf    inf    inf    inf    |
+
+affiche de la matrice des prédécesseurs après l'étape :3
+|    -1.0   2.0    1.0    1.0    |
+|    -1.0   2.0    1.0    1.0    |
+|    -1.0   2.0    1.0    1.0    |
+|    -1.0   -1.0   -1.0   -1.0   |
+
+Le graphe contient au moins un circuit absorbant
+Présence de circuits absorbant
+voulez vous étudier un autre graphe? (1: oui; 2: non)

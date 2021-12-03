@@ -11,24 +11,21 @@ public class A5_Main {
 
         int autreGraphe;
         //while true pour que le programme tourne en boucle
-        //on commence par demander le nom du fichier du graphe a traiter
+        //on commence par demander le nom du fichier du graphe à traiter
         System.out.println("Entrer le nom du fichier graphe (grapheX.txt) :");
         grapheTraiter += scanner.nextLine();
         
         while(a){
-            //y a t-il plusieurs graphes par fichier texte ou chaques graphe a son propre fichier ?
-            //a coder interface de gestion de la demande degraphe et on dit que le graphe à retourner se situe dans le dossier
-            //test.txt soit dans la variable grapheTraiter
-        
+            
             //Etape 1 récupération de la matrice d'adjacence
             double[][] matriceAdjacence = A5_LectureFichier.matriceAdjacence(grapheTraiter);
             A5_LectureFichier.affichageMatrice(matriceAdjacence);
 
-            //Etape 2 On effectue l'algorythme de floyd avec affichage des matrice intermédiaires
+            //Etape 2 On effectue l'algorythme de floyd avec affichage des matrices intermédiaires
             A5_Floyd matricesFinale = A5_Floyd.algorythmeFloyd(matriceAdjacence);
-            //on véfifie si on trouvé un circuit absorbant
+            //on véfifie si on a trouvé un circuit absorbant
             if(matricesFinale.aCircuitAbs()){
-                System.out.println("La matrice contient au moins un circuit absorbant");
+                System.out.println("Le graphe contient au moins un circuit absorbant");
             }
             //Etape 3 on propose l'affichage des chemins les plus cours
             //on récupère la liste des chemins possibles 
@@ -36,7 +33,7 @@ public class A5_Main {
             cheminsPossibles.listeCheminsPossibles(matricesFinale.getMatriceP());
            //Boucle d'affichage des chemins les plus courts tant que l'utilisateur ne veut pas s'arreter
            boolean continuer = true;
-           while(continuer){
+           while(continuer && !matricesFinale.aCircuitAbs()){
                 //on les affiches en mettant avant le numéro à saisir pour la sélection
                 System.out.println("Entrer 0 pour sortir de l'étude de ce graphe");
                 System.out.println(cheminsPossibles);
@@ -61,10 +58,13 @@ public class A5_Main {
                         int arrivee = cheminsPossibles.get(cheminChoisit - 1).getVal2();
                         ArrayList<Integer> chemin = A5_LectureChemin.rechercheChemin(matricesFinale.getMatriceP(), depart, arrivee );
                         double poids = matricesFinale.getMatriceL()[depart][arrivee];
-                        //affichage du chmin
+                        //affichage du chemin
                         A5_LectureChemin.affichageChemin(chemin, poids);
                     }
                 }
+            }
+            if(matricesFinale.aCircuitAbs()){
+                System.out.println("Présence de circuits absorbant");
             }
             System.out.println("voulez vous étudier un autre graphe? (1: oui; 2: non)");
             autreGraphe = scanner.nextInt();

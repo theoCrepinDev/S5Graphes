@@ -28,7 +28,7 @@ public class A5_Floyd {
 
         double[][] matriceL = new double[len][len];
         double[][] matriceP = new double[len][len];
-        boolean circuitAbsorbant = true;
+        boolean circuitAbsorbant = false;
         //copie de la matrice d'adjacence dans L
         //et initialisation de P
         
@@ -58,15 +58,14 @@ public class A5_Floyd {
                     System.out.println(matriceL[i][k]);
                     System.out.println(matriceL[k][j]);
                     */
-                    // j'ajoute la condition de i différent de j car on a pas besoin de parcourir le graphe 
                     if(matriceL[i][j] > (matriceL[i][k] + matriceL[k][j]) && (matriceL[k][j] != inf && matriceL[i][k] != inf)){
                         matriceL[i][j] = matriceL[i][k] + matriceL[k][j];
                         matriceP[i][j] = matriceP[k][j];
                     }
-                    //détection de circuit absorbant (valeure négative sur la diagonale)
-                    if(i == j && matriceP[i][j] < 0){
-                        circuitAbsorbant = true;
-                    }
+                }
+                //détection de circuits absorbants (valeure négative sur la diagonale)
+                if(matriceL[i][i] < 0){
+                    circuitAbsorbant = true;
                 }
             }
 

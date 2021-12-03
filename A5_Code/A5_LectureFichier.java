@@ -4,10 +4,9 @@ import java.io.*;
 import java.util.Scanner;
 
 public class A5_LectureFichier {
-    public static int inf = Integer.MAX_VALUE; //permet de représenter l'infini
+    public static int inf = Integer.MAX_VALUE; //permet de représenter l'infinie
 
     //fonction d'affichage d'une matrice
-    //sera remplacée par celle de Farouk qui sera plus esthétique
     public static void affichageMatrice(double[][] matrice){
         int a = matrice.length;
         int b = matrice.length;

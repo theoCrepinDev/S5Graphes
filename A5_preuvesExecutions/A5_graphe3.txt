@@ -1,0 +1,98 @@
+voulez vous étudier un autre graphe? (1: oui; 2: non)
+1
+Entrer le nom du fichier graphe (grapheX.txt) :
+graphe3.txt
+|    inf    1.0    -5.0   inf    |
+|    inf    inf    -3.0   2.0    |
+|    inf    4.0    inf    2.0    |
+|    inf    inf    inf    inf    |
+
+affichage matrice des poids avant itérations
+|    inf    1.0    -5.0   inf    |
+|    inf    inf    -3.0   2.0    |
+|    inf    4.0    inf    2.0    |
+|    inf    inf    inf    inf    |
+
+affichage matrice des prédécesseurs avant itérations
+|    -1.0   0.0    0.0    -1.0   |
+|    -1.0   -1.0   1.0    1.0    |
+|    -1.0   2.0    -1.0   2.0    |
+|    -1.0   -1.0   -1.0   -1.0   |
+
+affiche de la matrice des poids après l'étape :0
+|    inf    1.0    -5.0   inf    |
+|    inf    inf    -3.0   2.0    |
+|    inf    4.0    inf    2.0    |
+|    inf    inf    inf    inf    |
+
+affiche de la matrice des prédécesseurs après l'étape :0
+|    -1.0   0.0    0.0    -1.0   |
+|    -1.0   -1.0   1.0    1.0    |
+|    -1.0   2.0    -1.0   2.0    |
+|    -1.0   -1.0   -1.0   -1.0   |
+
+affiche de la matrice des poids après l'étape :1
+|    inf    1.0    -5.0   3.0    |
+|    inf    inf    -3.0   2.0    |
+|    inf    4.0    1.0    2.0    |
+|    inf    inf    inf    inf    |
+
+affiche de la matrice des prédécesseurs après l'étape :1
+|    -1.0   0.0    0.0    1.0    |
+|    -1.0   -1.0   1.0    1.0    |
+|    -1.0   2.0    1.0    2.0    |
+|    -1.0   -1.0   -1.0   -1.0   |
+
+affiche de la matrice des poids après l'étape :2
+|    inf    -1.0   -5.0   -3.0   |
+|    inf    1.0    -3.0   -1.0   |
+|    inf    4.0    1.0    2.0    |
+|    inf    inf    inf    inf    |
+
+affiche de la matrice des prédécesseurs après l'étape :2
+|    -1.0   2.0    0.0    2.0    |
+|    -1.0   2.0    1.0    2.0    |
+|    -1.0   2.0    1.0    2.0    |
+|    -1.0   -1.0   -1.0   -1.0   |
+
+affiche de la matrice des poids après l'étape :3
+|    inf    -1.0   -5.0   -3.0   |
+|    inf    1.0    -3.0   -1.0   |
+|    inf    4.0    1.0    2.0    |
+|    inf    inf    inf    inf    |
+
+affiche de la matrice des prédécesseurs après l'étape :3
+|    -1.0   2.0    0.0    2.0    |
+|    -1.0   2.0    1.0    2.0    |
+|    -1.0   2.0    1.0    2.0    |
+|    -1.0   -1.0   -1.0   -1.0   |
+
+Entrer 0 pour sortir de l'étude de ce graphe
+Voici les chemins possibles :
+Veuillez en sélectionner un :
+1 : chemin de 0 vers : 1
+2 : chemin de 0 vers : 2
+3 : chemin de 0 vers : 3
+4 : chemin de 1 vers : 1
+5 : chemin de 1 vers : 2
+6 : chemin de 1 vers : 3
+7 : chemin de 2 vers : 1
+8 : chemin de 2 vers : 2
+9 : chemin de 2 vers : 3
+
+8
+affichage du chemin le plus court :
+2->1->2
+De poids : 1.0
+Entrer 0 pour sortir de l'étude de ce graphe
+Voici les chemins possibles :
+Veuillez en sélectionner un :
+1 : chemin de 0 vers : 1
+2 : chemin de 0 vers : 2
+3 : chemin de 0 vers : 3
+4 : chemin de 1 vers : 1
+5 : chemin de 1 vers : 2
+6 : chemin de 1 vers : 3
+7 : chemin de 2 vers : 1
+8 : chemin de 2 vers : 2
+9 : chemin de 2 vers : 3

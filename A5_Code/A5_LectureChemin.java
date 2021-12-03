@@ -39,7 +39,7 @@ public class A5_LectureChemin {
     }
     
     //fonction qui permet de renvoyer un tableau 
-    //des chemin possibles qui prend en arguments une matrice des prédécesseurs
+    //des chemins possibles qui prend en arguments une matrice des prédécesseurs
     public ArrayList<A5_CouplesEntiers> listeCheminsPossibles(double[][] matriceP){
         int len = matriceP.length;
         for(int i = 0; i < len; i++){
@@ -55,7 +55,6 @@ public class A5_LectureChemin {
     
 
     // fonction pour permettre la lecture d'un chemin à partir de la matrice de prédécesseurs
-    //la longeure max est le nombre de sommets présent dans le graphes
     public static ArrayList<Integer> rechercheChemin(double[][] matricePrede, int depart, int arrivee){
         ArrayList<Integer> resultat = new ArrayList<>();
         resultat.add(arrivee);
